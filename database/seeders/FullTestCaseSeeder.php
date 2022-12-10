@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Statistics;
 use App\Models\Task;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class FullTestCaseSeeder extends Seeder
@@ -17,6 +16,8 @@ class FullTestCaseSeeder extends Seeder
      */
     public function run()
     {
+        // seeder to test all the functionality of the app
+
         $users = User::factory()->count(50)->create();
         $admins = User::factory()->admin()->count(50)->create();
 
