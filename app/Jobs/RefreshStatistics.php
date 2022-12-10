@@ -34,7 +34,8 @@ class RefreshStatistics implements ShouldQueue
     public function handle()
     {
         $taskCounts = Task::where('assigned_to_id', $this->user->getKey())->count();
-        $this->user->statistics()->updateOrCreate([
+        Statistics::updateOrCreate(['user_id' => $this->user->id], [
+            'user_id' => $this->user->id,
             'tasks_count' => $taskCounts
         ]);
     }
