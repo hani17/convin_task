@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('tasks', 'Api\TaskController')->only(['index', 'store']);
 Route::get('users', 'Api\UserController');
+Route::get('stats', 'Api\StatsController');
+

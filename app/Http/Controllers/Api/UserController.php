@@ -14,9 +14,16 @@ class UserController extends Controller
     public function __invoke(Request $request): AnonymousResourceCollection
     {
         $query = User::query();
-        $query = $request->get('type') == 'admin'
+        $searchBy = $request->get('q');
+        $type = $request->get('type');
+
+        $query = $type == 'admin'
             ? $query->admin()
             : $query->ordinary();
+
+        $query = $searchBy
+            ? $query->search($searchBy)
+            : $query;
 
         return UserResource::collection($query->paginate());
     }

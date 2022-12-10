@@ -23,7 +23,7 @@ class TaskController extends Controller
     public function index(): AnonymousResourceCollection
     {
         return TaskResource::collection(
-            Task::with(['assignedTo', 'assignedBy'])->paginate(10)
+            Task::with(['assignedTo', 'assignedBy'])->latest()->paginate(10)
         );
     }
 

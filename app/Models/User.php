@@ -62,4 +62,10 @@ class User extends Authenticatable
     {
         $builder->where('is_admin', false);
     }
+
+    public function scopeSearch(Builder $builder, string $searchWord): void
+    {
+        $builder->where('name', 'like', '%' . $searchWord . '%')
+        ->orWhere('email', 'like', '%' . $searchWord . '%');
+    }
 }
