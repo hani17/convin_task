@@ -15,7 +15,6 @@ docker run --rm -it -v "$PWD":/app -u "$(id -u)" composer install
 echo "Installing Done"
 
 echo "running laravel sail, docker containers going to be built it may take sometime...."
-./vendor/bin/sail build --no-cache
 ./vendor/bin/sail up -d
 echo "running laravel sail Done"
 
